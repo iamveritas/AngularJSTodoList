@@ -2,8 +2,12 @@
 
 var app = angular.module('AngularJSTodoListListApp', ['ngRoute']);
 
-app.constant('version', '1.0');
+// using of constant service; the author suppose to not change, be constant :)
 app.constant('author', 'Ovi-Wan Kenobi');
+
+// using the value service; the version would eventually change, therefor not a constant.
+app.value('version', '1.0');
+
 
 //This code configures the app routes and associates each route with a view and a controller
 app.config(function ($routeProvider) {

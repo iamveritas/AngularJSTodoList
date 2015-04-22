@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html data-ng-app="AngularJSTodoListListApp">
+<head>
+    <title>AngularJS TO DO List</title>
+</head>
+<body ng-controller="AngularJSTodoListListAppController as mainController">
+    <div>
+        <table>
+            <tr>
+                <td><a class="brand " href="#/"><img src="images/favicon.png" alt="V" height="64" width="64"></a></td>
+                <td>AngularJS TO DO List</td>
+
+            </tr>
+            <tr>
+                <td align="left"><a href="#/Todos">All Users' TO DOs</a></td>
+                <td align="right"><a href="#/users">Users</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div ng-view></div>
+
+    <div id="footer">
+        <footer>
+            <table>
+                <tr>
+                    <td>
+                        <div class="span4">
+                            Created by {{mainController.author}}, Version {{mainController.version}}</br>
+                            inspired by Dan Wahlin's AngularJS demo</br>
+                            Powered by: <a href="http://angularjs.org">AngularJS</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </footer>
+    </div>
+
+    <!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+    <script src="thirdparty/angular.js"></script>
+    <script src="thirdparty/angular-route.js"></script>
+    <script src="thirdparty/jquery.min.js"></script>
+    <script src="thirdparty/bootstrap.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controllers.js"></script>
+    <script src="app/services/userService.js"></script>
+    <!--script src="app/directives/animatedView.js"></script>-->
+</body>
+</html>

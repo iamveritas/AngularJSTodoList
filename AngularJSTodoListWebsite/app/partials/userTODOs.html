@@ -1,0 +1,35 @@
+﻿<div>
+    <div>
+        <header>
+            <h3>User TO DOs</h3>
+        </header>
+        <div>
+            <div>
+                <h4>{{ user.FirstName + ' ' + user.LastName }}</h4>
+                <br /><br />
+            </div>
+            <!--<div data-ng-include="'/app/partials/TodosTable.html'" />-->
+            <table cellspacing="5">
+                <thead>
+                    <tr>
+                        <th align="left">Title</th>
+                        <th align="left">Description</th>
+                        <th align="left">Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-hide="user.Todos || user.Todos.length > 0">
+                        <td colspan="4">
+                            <div><strong>No TO DOs assigned</strong></div>
+                        </td>
+                    </tr>
+                    <tr data-ng-repeat="todo in user.Todos">
+                        <td>{{ todo.Title }}</td>
+                        <td>{{ todo.Description }}</td>
+                        <td>{{ todo.DueDate | date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

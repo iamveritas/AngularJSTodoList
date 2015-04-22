@@ -1,0 +1,51 @@
+﻿<div>
+    <div>
+        <table cellspacing="20">
+            <tr>
+                <td valign="top">
+                    <header>
+                        <h3>Add New User</h3>
+                    </header>
+                    <div>
+                        <div>
+                            First Name:
+                            <input data-ng-model="newUser.FirstName" type="text" placeholder="First Name">
+                        </div>
+                        <div>
+                            Last Name:
+                            <input data-ng-model="newUser.LastName" type="text" placeholder="Last Name">
+                        </div>
+                        <div>
+                            <br />
+                            <button id="submitUser" type="button"
+                                    data-ng-disabled="!newUser.FirstName || !newUser.LastName"
+                                    data-ng-click="insertUser();">
+                                Add User
+                            </button>
+                        </div>
+                    </div>
+                    <br /><br />
+                </td>
+                <td valign="top">
+                    <header>
+                        <h3>List of all users</h3>
+                    </header>
+                    <div ng-hide="loading" data-ng-repeat="user in usersList | orderBy:'LastName'">
+                        <table cellspacing="3">
+                            <col width="150">
+                            <col width="80">
+                            <col width="50">
+                            <tr>
+                                <td><div>{{user.FirstName + ' ' + user.LastName}}</div></td>
+                                <td><a href="#/userTodos/{{user.Id}}">List {{ user.Todos.length }} Tasks</a></td>
+                                <td><button data-ng-click="deleteUser(user.Id)">Delete</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br /><br />
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

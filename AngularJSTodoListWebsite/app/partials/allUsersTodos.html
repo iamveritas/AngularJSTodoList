@@ -1,0 +1,37 @@
+﻿<div>
+    <div>
+        <header>
+            <h3>All Users TO DOs</h3>
+        </header>
+        <div data-ng-include="'/app/partials/addTodo.html'"></div>
+        <div data-ng-repeat="user in usersList | orderBy:'LastName'">
+            <div>
+                <h4><a href="#/userTodos/{{user.Id}}">{{ user.FirstName + ' ' + user.LastName }}</a></h4>
+            </div>
+            <!--<div data-ng-include="'/app/partials/TodosTable.html'" />-->
+        
+            <table cellspacing="5">
+                    <thead>
+                        <tr>
+                            <th align="left">Title</th>
+                            <th align="left">Description</th>
+                            <th align="left">Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-hide="user.Todos || user.Todos.length > 0">
+                            <td colspan="4">
+                                <div><strong>No TO DOs assigned</strong></div>
+                            </td>
+                        </tr>
+                        <tr data-ng-repeat="todo in user.Todos">
+                            <td>{{ todo.Title }}</td>
+                            <td>{{ todo.Description }}</td>
+                            <td>{{ todo.DueDate | date }}</td>
+                        </tr>
+                    </tbody>
+            </table>
+    
+        </div>
+    </div>
+</div>

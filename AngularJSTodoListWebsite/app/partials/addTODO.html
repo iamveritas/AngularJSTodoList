@@ -1,0 +1,28 @@
+﻿<div>
+    <header>
+        <h3>Add Todo</h3>
+    </header>
+    <div>
+        Chose a user
+        <select id="userDropDown" ng-model="userSelected" ng-options="user.Id as getUserFullName(user) for user in usersList">
+            <option value="">[No User]</option>
+        </select>
+    </div>
+    <div>
+        Todo Title: <input data-ng-model="newTodo.title" type="text" placeholder="Todo Title">
+    </div>
+    <div>
+        Todo Description: <input data-ng-model="newTodo.description" type="text" placeholder="Todo Description">
+    </div>
+    <div>
+        Todo Date: <input data-ng-model="newTodo.duedate" type="text" placeholder="Todo Due Date">
+    </div>
+    <div>
+        <br />
+        <button id="submitTodo" type="button"
+                data-ng-disabled="!newTodo.title || !userSelected"
+                data-ng-click="createTodo(userSelected, newTodo.title, newTodo.description, newTodo.duedate)">
+            Create Todo
+        </button>
+    </div>
+</div>

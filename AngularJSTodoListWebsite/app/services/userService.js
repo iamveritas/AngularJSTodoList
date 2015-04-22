@@ -91,17 +91,6 @@ app.service('userService', function ($http) {
         }
     }
 
-    //function handleError(response) {
-    //    if (!angular.isObject(response.data) || !response.data.message) {
-    //        return ($q.reject("An unknown error occurred."));
-    //    }
-    //    return ($q.reject(response.data.message));
-    //}
-
-    //function handleSuccess(response) {
-    //    return (response.data);
-    //}
-
     // in memory local store for users + Todos
     us.users = [
         {

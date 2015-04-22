@@ -2,7 +2,7 @@
 
 var app = angular.module('AngularJSTodoListListApp', ['ngRoute']);
 
-// using of constant service; the author suppose to not change, be constant :)
+// using of constant service; the author suppose to not change, hence the constant service
 // this can be used just like value service + in app.config
 app.constant('author', 'Ovi-Wan Kenobi');
 

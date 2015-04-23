@@ -17,18 +17,21 @@ app.config(function ($routeProvider) {
         .when('/users',
             {
                 templateUrl: 'app/partials/users.html',
-                controller: 'userController'
+                //controller: 'userControllerWithService'
+                controller: 'userControllerWithFactory'
             })
         //Define a route that has a route parameter in it (:userId)
         .when('/userTodos/:userId',
             {
                 templateUrl: 'app/partials/userTodos.html',
-                controller: 'userController'
+                //controller: 'userControllerWithService'
+                controller: 'userControllerWithFactory'
             })
         .when('/Todos',
             {
                 templateUrl: 'app/partials/allUsersTodos.html',
-                controller: 'userController'
+                //controller: 'userControllerWithService'
+                controller: 'userControllerWithFactory'
             })
         .otherwise({ redirectTo: '/users' });
 });

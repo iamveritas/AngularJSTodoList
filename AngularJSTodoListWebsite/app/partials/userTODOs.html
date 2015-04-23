@@ -1,13 +1,9 @@
 ﻿<div>
     <div>
         <header>
-            <h3>User TO DOs</h3>
+            <h3>{{ user.FirstName + ' ' + user.LastName }}'s TO DOs</h3>
         </header>
         <div>
-            <div>
-                <h4>{{ user.FirstName + ' ' + user.LastName }}</h4>
-                <br /><br />
-            </div>
             <!--<div data-ng-include="'/app/partials/TodosTable.html'" />-->
             <table cellspacing="5">
                 <thead>

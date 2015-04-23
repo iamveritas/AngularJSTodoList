@@ -2,20 +2,32 @@
     <header>
         <h3>Add Todo</h3>
     </header>
-    <div>
-        Chose a user
-        <select id="userDropDown" ng-model="userSelected" ng-options="user.Id as getUserFullName(user) for user in usersList">
-            <option value="">[No User]</option>
-        </select>
-    </div>
-    <div>
-        Todo Title: <input data-ng-model="newTodo.title" type="text" placeholder="Todo Title">
-    </div>
-    <div>
-        Todo Description: <input data-ng-model="newTodo.description" type="text" placeholder="Todo Description">
-    </div>
-    <div>
-        Todo Date: <input data-ng-model="newTodo.duedate" type="text" placeholder="Todo Due Date">
+    <div>        
+        <table>
+            <tr>
+                <td>Chose a user</td>
+                <td>
+                    <select id="userDropDown" ng-model="userSelected" ng-options="user.Id as getUserFullName(user) for user in usersList">
+                        <option value="">[No User]</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Todo Title:</td>
+                <td><input data-ng-model="newTodo.title" type="text" placeholder="Todo Title"></td>
+            </tr>
+            <tr>
+                <td>Todo Description:</td>
+                <td>
+                    <!--<input data-ng-model="newTodo.description" type="text" placeholder="Todo Description">-->
+                    <textarea cols="40" rows="5" data-ng-model="newTodo.description" type="text" placeholder="Todo Description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Todo Date:</td>
+                <td><input data-ng-model="newTodo.duedate" type="text" placeholder="Todo Due Date"></td>
+            </tr>
+        </table>
     </div>
     <div>
         <br />

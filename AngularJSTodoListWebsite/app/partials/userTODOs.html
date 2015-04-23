@@ -21,7 +21,9 @@
                     </tr>
                     <tr data-ng-repeat="todo in user.Todos">
                         <td>{{ todo.Title }}</td>
-                        <td>{{ todo.Description }}</td>
+                        <td>
+                            <textarea cols="40" rows="5" type="text" placeholder="Todo Description">{{ todo.Description }}</textarea>
+                        </td>
                         <td>{{ todo.DueDate | date }}</td>
                     </tr>
                 </tbody>

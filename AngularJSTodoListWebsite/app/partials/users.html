@@ -32,13 +32,13 @@
                     </header>
                     <div ng-hide="loading" data-ng-repeat="user in usersList | orderBy:'LastName'">
                         <table cellspacing="3">
-                            <col width="150">
-                            <col width="80">
+                            <col width="250">
+                            <col width="120">
                             <col width="50">
                             <tr>
-                                <td><div>{{user.FirstName + ' ' + user.LastName}}</div></td>
-                                <td><a href="#/userTodos/{{user.Id}}">List {{ user.Todos.length }} Tasks</a></td>
-                                <td><button data-ng-click="deleteUser(user.Id)">Delete</button></td>
+                                <td>{{user.FirstName + ' ' + user.LastName}}</td>
+                                <td><a href="#/userTodos/{{user.Id}}">{{ user.Todos.length }} TO DOs</a></td>
+                                <td><button data-ng-click="deleteUser(user.Id)">X</button></td>
                             </tr>
                         </table>
                     </div>

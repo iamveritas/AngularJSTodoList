@@ -1,4 +1,5 @@
-
+// N.B. a service service (this is not a typo!) returns the reference(s) to the function(s) defined by the service
+// more here: https://groups.google.com/forum/#!msg/angular/56sdORWEoqg/HuZsOsMvKv4J
 app.service('userService', function ($http) {
 
     var us = this;

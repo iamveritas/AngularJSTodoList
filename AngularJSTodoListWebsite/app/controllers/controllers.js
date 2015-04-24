@@ -1,5 +1,6 @@
 // here we define all the controllers that the app is using
 
+// the main controller, lightly used for constant and value services
 app.controller('AngularJSTodoListListAppController', 
     ["author", "version", function AngularJSTodoListListAppController(author, version) {
         this.author = author;
@@ -7,6 +8,7 @@ app.controller('AngularJSTodoListListAppController',
     }]
 );
 
+// user controller making use of the userService service
 app.controller('userControllerWithService',
     ['$scope', '$http', '$routeParams', 'userService',
       function ($scope, $http, $routeParams, userService) {
@@ -100,6 +102,7 @@ app.controller('userControllerWithService',
     }]
 );
 
+// user controller making use of the userFactory service
 app.controller('userControllerWithFactory',
     ['$scope', '$http', '$routeParams', 'userFactory',
       function ($scope, $http, $routeParams, userFactory) {
@@ -193,6 +196,7 @@ app.controller('userControllerWithFactory',
       }]
 );
 
+// user controller making use of the userProvider service
 app.controller('userControllerWithProvider',
     ['$scope', '$http', '$routeParams', 'userProvider',
       function ($scope, $http, $routeParams, userProvider) {

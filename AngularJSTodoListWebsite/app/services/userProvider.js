@@ -2,6 +2,7 @@
 //      You CAN inject a service into the section which initializes the provider's service.
 //      Angular framework has a 2 phase initialization process: config and run (SECTION 1 and SECTION 2 below)
 //      That's why compared with the factory and service sevices, this one will not have injected at this level the $http service
+// more here: https://groups.google.com/forum/#!msg/angular/56sdORWEoqg/HuZsOsMvKv4J
 app.provider('userProvider', function () {
 
     // SECTION 1: code to initialize/configure the PROVIDER goes here (executed during `config` phase)

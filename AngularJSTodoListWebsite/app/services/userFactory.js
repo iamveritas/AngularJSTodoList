@@ -1,4 +1,5 @@
-﻿
+﻿// N.B. a factory service returns the value result of the function(s) defined in factory (same value like when they are called)
+// more here: https://groups.google.com/forum/#!msg/angular/56sdORWEoqg/HuZsOsMvKv4J
 app.factory('userFactory', function($http) {
 
     var userFactory = {};

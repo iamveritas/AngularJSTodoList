@@ -1,5 +1,5 @@
 ﻿
-
+// declaring dependency on nrRoute for our angular app/module
 var app = angular.module('AngularJSTodoListListApp', ['ngRoute']);
 
 // using of constant service; the author suppose to not change, hence the constant service
@@ -11,9 +11,10 @@ app.constant('author', 'Ovi-Wan Kenobi');
 app.value('version', '1.0');
 
 
-//This code configures the app routes and associates each route with a view and a controller
 // N.B. the name of the provider is userProviderProvider, because the name when it was declared was userProvider
 app.config(['$routeProvider',  'userProviderProvider', function ($routeProvider, userProviderProvider) {
+
+    //This code configures the app routes and associates each route with a view and a controller    
     $routeProvider
         .when('/users',
             {
@@ -39,9 +40,11 @@ app.config(['$routeProvider',  'userProviderProvider', function ($routeProvider,
             })
         .otherwise({ redirectTo: '/users' });
 
+    // just curious what the userPrvider and userProvider.get$ look like...
     //console.info(userProviderProvider);
     //console.info(userProviderProvider.$get());
 
+    // configuring the userProvider url; this happens at config 'phase' before all angular services are instantiated
     userProviderProvider.setUrl('/api/admin/users');
 }]);
 

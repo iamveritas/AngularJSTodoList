@@ -192,6 +192,101 @@ app.controller('userControllerWithFactory',
           $scope.init();
       }]
 );
+
+app.controller('userControllerWithProvider',
+    ['$scope', '$http', '$routeParams', 'userProvider',
+      function ($scope, $http, $routeParams, userProvider) {
+
+          $scope.usersList = [];
+          $scope.loading = true;
+          $scope.loadingOneUser = true;
+          $scope.user = {}; // used in case only one customer is selected
+
+          $scope.init = function init() {
+              $scope.loading = true;
+              userProvider.getUsers().success(function (data) {
+                  $scope.usersList = data;
+                  $scope.loading = false;
+              }).error(function (data) {
+                  $scope.loading = false;
+                  console.log('userControllerWithProvider.init():err:' + data);
+              });
+
+              // initialize the user in case a user is selected (by reading first the userId from route)
+              $scope.loadingOneUser = true;
+              var userId = ($routeParams.userId) ? parseInt($routeParams.userId) : 0;
+              if (userId > 0) {
+                  userProvider.getUser(userId).success(function (data) {
+                      $scope.user = data;
+                      $scope.loadingOneUser = false;
+                  }).error(function (data) {
+                      $scope.loadingOneUser = false;
+                      console.log('userControllerWithProvider.init():err:' + data);
+                  });
+              }
+
+              if ($scope.usersList)
+                  console.log('usersList count ' + $scope.usersList.length);
+          }
+
+          $scope.insertUser = function () {
+              var firstName = $scope.newUser.FirstName;
+              var lastName = $scope.newUser.LastName;
+              $scope.loading = true;
+              userProvider.insertUser(firstName, lastName).
+                  success(function (data) {
+                      // refresh users list
+                      $scope.init();
+                      $scope.loading = false;
+                  }).error(function (data) {
+                      $scope.loading = false;
+                      console.log('userControllerWithProvider.insertUser():err:' + data);
+                  });
+              $scope.newUser.FirstName = '';
+              $scope.newUser.LastName = '';
+              if ($scope.usersList)
+                  console.log('usersList count ' + $scope.usersList.length);
+          }
+
+          $scope.deleteUser = function (userId) {
+              $scope.loading = true;
+              userProvider.deleteUser(userId).
+                  success(function (data) {
+                      // refresh users list
+                      $scope.init();
+                      $scope.loading = false;
+                  }).error(function (data) {
+                      $scope.loading = false;
+                      console.log('userControllerWithProvider.deleteUser():err:' + data);
+                  });
+              if ($scope.usersList)
+                  console.log('usersList count ' + $scope.usersList.length);
+          }
+
+          $scope.getUserFullName = function (user) {
+              return user.FirstName + ' ' + user.LastName;
+          }
+
+          $scope.createTodo = function (userSelectedId, title, description, duedate) {
+              $scope.loading = true;
+              userProvider.createTodo(userSelectedId, title, description, duedate).
+                  success(function (data) {
+                      // refresh users list
+                      $scope.init();
+                      $scope.loading = false;
+                  }).error(function (data) {
+                      $scope.loading = false;
+                      console.log('userControllerWithProvider.createTodo():err:' + data);
+                  });
+              if ($scope.usersList)
+                  console.log('usersList count ' + $scope.usersList.length);
+          }
+
+          $scope.init();
+      }]
+);
+
+
 // generic template to devine a new controller
 app.controller('controllerName', function ($scope) {
 
